@@ -2,6 +2,7 @@ import { ID, Query } from "appwrite";
 
 import { appwriteConfig, account, databases, storage, avatars } from "./config";
 import { IUpdatePost, INewPost, INewUser, IUpdateUser } from "@/types";
+import { User } from "lucide-react";
 
 // ============================================================
 // AUTH
@@ -141,7 +142,8 @@ export async function createPost(post: INewPost) {
       appwriteConfig.postCollectionId,
       ID.unique(),
       {
-        creator: post.userId,
+        owner:"there",
+        creator: "anshul",
         caption: post.caption,
         imageUrl: fileUrl,
         imageId: uploadedFile.$id,
@@ -183,7 +185,7 @@ export function getFilePreview(fileId: string) {
       appwriteConfig.storageId,
       fileId,
       2000,
-      2000,
+      20000,
       "top",
       100
     );
